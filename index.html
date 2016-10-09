@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>FeSights</title>
+	<link rel="stylesheet" href="./css/app.css">
+	<link rel="stylesheet" href="./css/font-awesome.min.css">
+	<script>var $ = jQuery = require('jquery');</script>
+</head>
+<body>
+	<div id='content'></div>
+</body>
+
+<script>
+	var app = require('./lib/app');
+	app.on( 'view-rendered', function(viewHTML) {
+		$("#content").html(viewHTML);
+		wireEvents();
+	});
+	 var showContent = function(view) {
+		 app.emit('view-selected', view);
+	 }
+
+	$(function() {
+		showContent('main');
+	});
+
+	var wireEvents = function() {
+		$(".nav-link").on("click", function(ev) {
+			ev.preventDefault();
+			showContent($(ev.currentTarget).data('link'));
+		});
+	}
+</script>
+</html>
