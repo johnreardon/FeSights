@@ -17,10 +17,10 @@
 		$("#content").html(viewHTML);
 		wireEvents();
 	});
-	 var showContent = function(view) {
+	var showContent = function(view) {
 		 app.emit('view-selected', view);
-	 }
-
+	}
+	
 	$(function() {
 		showContent('main');
 	});

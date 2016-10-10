@@ -5,3 +5,8 @@ body {
 
 .content {
 }
+
+.datainput {
+  height: 40px;
+  font-size: 16pt;
+}

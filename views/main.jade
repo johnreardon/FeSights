@@ -2,5 +2,14 @@ div.content
   div(style="float:right;")
     a(href="#" class="nav-link" data-link="config") Config
   br
-  input(type="text" placeholder="Enter input directory" name="inputDir" id="inputDir" width="200")
-  button(onClick="RunIt();") Run
+  input(type="text" placeholder="Enter input directory" name="inputDir" id="inputDir" class='datainput')
+  button(onClick="Browse();") Run
+
+  script.
+    function Browse() {
+      app.emit('onBrowse', 'inputDirectory');
+    }
+    app.on('inputDirectorybrowseComplete', function(dir) {
+      alert(dir);
+      $('#inputDir').val(dir);
+    })
