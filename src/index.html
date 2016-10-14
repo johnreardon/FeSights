@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>FeSights</title>
-	<link rel="stylesheet" href="./css/app.css">
-	<link rel="stylesheet" href="./css/font-awesome.min.css">
-	<script src="./js/contextMenu.js"></script>
+	<link rel="stylesheet" href="../css/app.css">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+	<script src="../js/contextMenu.js"></script>
 	<script>var $ = jQuery = require('jquery');</script>
 </head>
 <body>
@@ -13,7 +13,7 @@
 </body>
 
 <script>
-	var app = require('./lib/app');
+	var app = require('../lib/app');
 	app.on( 'view-rendered', function(viewHTML) {
 		$("#content").html(viewHTML);
 		wireEvents();
@@ -21,7 +21,7 @@
 	var showContent = function(view) {
 		 app.emit('view-selected', view);
 	}
-	
+
 	$(function() {
 		showContent('main');
 	});
